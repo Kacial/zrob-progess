@@ -1,5 +1,5 @@
 import Image from "next/image";
-import fotoMain from "../content/Rectangle 1.png";
+import fotoMain from "../content/MaciekMainHQ.png";
 
 export const TopSection = () => {
   return (
