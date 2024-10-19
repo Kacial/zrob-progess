@@ -19,6 +19,9 @@ const config: Config = {
         "zp-orange-100": "#FEF3C7",
         "zp-orange-000": "#FFFBEB",
       },
+      boxShadow: {
+        custom: "10px 10px 20px 0px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [],
