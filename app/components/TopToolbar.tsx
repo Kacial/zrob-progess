@@ -5,7 +5,11 @@ import facebook_icon from "@/app/content/fb_logo.svg";
 
 export const TopToolbar = () => {
   return (
-    <div className={"bg-black flex flex-row items-center justify-between"}>
+    <div
+      className={
+        "hidden bg-black flex-row lg:flex items-center justify-between"
+      }
+    >
       <Image src={logo_mix} alt={"logo_mix"} className={"scale-50"} />
       <div className={"flex flex-row gap-6 pr-6"}>
         <span className={"text-zp-orange-500 text-base"}>Strona główna</span>

@@ -1,16 +1,19 @@
 import Image from "next/image";
 import maciekBw from "../content/mackie-b&wHQ.png";
+import maciekMobileBw from "../content/chapterMobileBg.png";
 
 export const FirstChapter = () => {
   return (
     <div className={"w-full flex flex-col h-auto"}>
       <div
         className={
-          "bg-black flex flex-row items-center justify-between px-10 py-24"
+          "bg-black flex flex-col lg:flex-row lg:items-center justify-between px-10 py-24 gap-6"
         }
       >
-        <span className={"text-5xl text-white font-bold w-1/2"}>O mnie:</span>
-        <span className={"text-lg text-white w-1/2"}>
+        <span className={"text-4xl lg:text-5xl text-white font-bold lg:w-1/2"}>
+          O mnie:
+        </span>
+        <span className={"text-sm lg:text-lg text-white lg:w-1/2"}>
           Trener przygotowania motorycznego i terapii ruchowej z ponad 10-letnim
           doświadczeniem oraz absolwent Akademii Wychowania Fizycznego we
           Wrocławiu. Specjalizuję się w kompleksowym podejściu do rozwoju
@@ -24,10 +27,15 @@ export const FirstChapter = () => {
       <div className={"h-9 bg-zp-orange-500"}></div>
       <div className={"h-36 bg-white"}></div>
       <div className={"relative"}>
-        <Image src={maciekBw} alt={"maciekBW"} />
+        <Image src={maciekBw} alt={"maciekBW"} className={"hidden lg:block"} />
+        <Image
+          src={maciekMobileBw}
+          alt={"maciekMobileBW"}
+          className={"block lg:hidden"}
+        />
         <span
           className={
-            "text-3xl text-white w-2/4 font-bold absolute right-28 bottom-10"
+            "text-2xl lg:text-3xl text-white lg:w-2/4 font-bold absolute lg:right-28 bottom-10 px-10"
           }
         >
           Success is not final, failure is not fatal: it is the courage to
