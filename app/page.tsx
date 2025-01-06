@@ -12,9 +12,9 @@ export default function Home() {
       <TopToolbar />
       <TopSection />
       <FirstChapter />
-      <OnlineCoursesSection />
-      <PricingSection />
-      <PartnersSection />
+      {/*<OnlineCoursesSection />*/}
+      {/*<PricingSection />*/}
+      {/*<PartnersSection />*/}
       <Footer />
     </div>
   );
