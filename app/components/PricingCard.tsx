@@ -37,14 +37,6 @@ const services: Service[] = [
     button: "SPRAWDŹ REKOMENDACJE",
   },
   {
-    type: "massage",
-    name: "Masaż",
-    serviceDetails: "Masaż (opcja z dojazdem do domu)",
-    pricing: 100,
-    desc: "Koncepcje którą stosuje podczas masażu opiera się na terapii punktów spustowych oraz stosowaniu technik tkanek miękkich oraz prace narzędziami IASTM",
-    button: "POZNAJ TECHNIKI MASAŻU",
-  },
-  {
     type: "onlineTraining",
     name: "Prowadzenie online",
     serviceDetails: "Abonament miesięczny",
