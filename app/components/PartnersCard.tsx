@@ -2,19 +2,21 @@ import Image from "next/image";
 import ola from "../content/ola_s Large.png";
 import lilinna from "../content/dr lilianna jawburz glowna Large.png";
 import bartosz from "../content/mgr bartosz burzynki glowna Large.png";
+import Link from "next/link";
 
 type PartnersProps = {
-  person: string;
+  name: string;
+  page: string;
 };
 
-export const PartnersCard: React.FC<PartnersProps> = (person) => {
-  const getPerson = (person: PartnersProps) => {
-    switch (person.person) {
-      case "ola":
+export const PartnersCard: React.FC<PartnersProps> = ({ name, page }) => {
+  const getPerson = (name: string) => {
+    switch (name) {
+      case "Ola Śliwińska":
         return ola;
-      case "bartosz":
+      case "Bartosz Burzyński":
         return bartosz;
-      case "lilianna":
+      case "Lilianna Jaworska-Burzyńska":
         return lilinna;
       default:
         return ola;
@@ -24,11 +26,15 @@ export const PartnersCard: React.FC<PartnersProps> = (person) => {
   return (
     <div className="w-[365px] h-[456px] bg-white shadow-custom">
       <div className="flex flex-col gap-1 items-start">
-        <Image src={getPerson(person)} alt="ola_S" />
-        <span className="px-4 text-xl text-black font-bold">Jan Browar</span>
-        <span className="px-4 text-xl text-zp-orange-500">
-          www.jakasstrona.pl
-        </span>
+        <Image src={getPerson(name)} alt="ola_S" />
+        <span className="px-4 text-xl text-black font-bold">{name}</span>
+        <Link
+          href={page}
+          target="_blank"
+          className="px-4 text-xl text-zp-orange-500"
+        >
+          {page}
+        </Link>
       </div>
     </div>
   );

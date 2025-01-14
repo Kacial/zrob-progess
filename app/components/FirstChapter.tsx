@@ -26,12 +26,12 @@ export const FirstChapter = () => {
       </div>
       <div className={"h-9 bg-zp-orange-500"}></div>
       <div className={"h-36 bg-white"}></div>
-      <div className={"relative"}>
-        <Image src={maciekBw} alt={"maciekBW"} className={"hidden lg:block"} />
+      <div className={"relative flex justify-center"}>
+        <Image src={maciekBw} alt={"maciekBW"} className={"hidden md:block"} />
         <Image
           src={maciekMobileBw}
           alt={"maciekMobileBW"}
-          className={"block lg:hidden"}
+          className={"block md:hidden"}
         />
         <span
           className={

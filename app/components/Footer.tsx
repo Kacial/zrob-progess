@@ -13,8 +13,8 @@ export const Footer = () => {
       >
         <Image src={logoMix} alt={"logo_mix"} className={"scale-100"} />
         <div className={"flex items-center flex-col lg:flex-row gap-5"}>
-          {/*<span className={"text-md text-white"}>rzepkaa.maciej@gmail.com</span>*/}
-          {/*<span className={"text-md text-white"}>tel. +48 666 041 721</span>*/}
+          <span className={"text-md text-white"}>zrob.progres@gmail.com</span>
+          <span className={"text-md text-white"}>tel. +48 666 721 048</span>
           <div className={"flex gap-6 flex-row"}>
             <Image src={instagram_icon} alt={"instagram"} />
             <Image src={facebook_icon} alt={"facebook"} />

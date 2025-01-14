@@ -4,10 +4,14 @@ export const PartnersSection = () => {
   return (
     <div className="w-full h-full flex flex-col items-center my-10">
       <span className="text-6xl font-bold text-black">Nasi partnerzy</span>
-      <div className="w-full h-full flex flex-row items-center justify-around m-8">
-        <PartnersCard person="ola" />
-        <PartnersCard person="lilianna" />
-        <PartnersCard person="bartosz" />
+      <div className="w-full h-full flex flex-col gap-10 lg:flex-row items-center justify-around m-8">
+        <PartnersCard name="Ola Śliwińska" page="https://nafalizdrowia.pl/" />
+        <PartnersCard
+          name="Lilianna Jaworska-Burzyńska"
+          page="https://crburzynscy.pl/"
+        />
+        <PartnersCard name="Bartosz Burzyński" page="https://crburzynscy.pl/" />
+        {/*<PartnersCard name="Bartosz Karpiński" page="https://crburzynscy.pl/" />*/}
       </div>
     </div>
   );
