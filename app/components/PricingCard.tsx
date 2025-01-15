@@ -25,34 +25,39 @@ const services: Service[] = [
     type: "training",
     name: "Trening",
     pricing: [
-      { name: "Jeden trening personalny", price: 110 },
-      { name: "10 treningów", price: 1000 },
-      {
-        name: "Plan żywieniowy, suplementacja, odczyt wyników badań krwi przez specjalistę",
-        price: 150,
-      },
-      { name: "Plan Treningowy", price: 150 },
-      { name: "Kinesiology Taping", price: 40 },
+      { name: "1h treningu personalnego, terapii ruchowej", price: 160 },
+      { name: "8h treningów personalnych, terapii ruchowych", price: 1200 },
+      // {
+      //   name: "Plan żywieniowy, suplementacja, odczyt wyników badań krwi przez specjalistę",
+      //   price: 150,
+      // },
+      // { name: "Plan Treningowy", price: 150 },
+      // { name: "Kinesiology Taping", price: 40 },
     ],
-    button: "SPRAWDŹ REKOMENDACJE",
+    button: "SPRAWDŹ SZCZEGÓŁY",
   },
   {
     type: "onlineTraining",
-    name: "Prowadzenie online",
+    name: "Współpraca w trybie niestacjonarnym",
     serviceDetails: "Abonament miesięczny",
-    pricing: 499,
-    desc: "Plan treningowy, indywidualna dieta rozpisana przez eksperta d.s żywienia (możliwość konsultacji online), nauka planu treningowego",
-    button: "ZAPYTAJ O SZCZEGÓŁY",
+    pricing: 550,
+    desc:
+      "Tryb zaoczny to elastyczna forma współpracy trenerskiej,\n" +
+      "idealna dla osób, które chcą łączyć treningi z codziennymi\n" +
+      "obowiązkami w elastycznym dla siebie wymiarze godzin.",
+    button: "SPRAWDŻ SZCZEGÓŁY",
   },
 ];
 const TrainingCard: React.FC<Service> = ({ name, pricing, button }) => (
   <div className="px-10 py-14 flex flex-col gap-8 items-center shadow-custom">
-    <span className="text-3xl font-bold text-white">{name}</span>
+    <span className="text-2xl md:text-3xl font-bold text-white">{name}</span>
     {Array.isArray(pricing) &&
       pricing.map(({ name, price }, index) => (
         <div key={index} className="flex justify-between w-full">
-          <span className="text-xl text-white text-left">{name}</span>
-          <span className="text-xl text-zp-orange-500 font-bold text-right">
+          <span className="text-base md:text-xl text-white text-left">
+            {name}
+          </span>
+          <span className="text-base md:text-xl text-zp-orange-500 font-bold text-right">
             {price} zł
           </span>
         </div>
@@ -73,11 +78,13 @@ const ServiceCard: React.FC<Service> = ({
   button,
 }) => (
   <div className="px-10 py-14 flex flex-col gap-8 items-center justify-between">
-    <span className="text-3xl font-bold text-white">{name}</span>
-    {desc && <span className="text-xl text-white">{desc}</span>}
+    <span className="text-2xl md:text-3xl font-bold text-white">{name}</span>
+    {desc && <span className="text-base md:text-xl text-white">{desc}</span>}
     <div className="flex justify-between w-full">
-      <span className="text-xl text-white text-left">{serviceDetails}</span>
-      <span className="text-xl text-zp-orange-500 font-bold text-right">
+      <span className="text-base md:text-xl text-white text-left">
+        {serviceDetails}
+      </span>
+      <span className="text-base md:text-xl text-zp-orange-500 font-bold text-right">
         {typeof pricing === "number" && `${pricing} zł`}
       </span>
     </div>
@@ -95,7 +102,7 @@ export const PricingCard: React.FC<PricingPros> = ({ type }) => {
   const filteredService = services.find((service) => service.type === type);
 
   return (
-    <div className="w-[493px] h-[591px] bg-black shadow-custom">
+    <div className="w-full md:w-[493px] h-[591px] bg-black shadow-custom">
       {type === "training" && filteredService ? (
         <TrainingCard
           name={filteredService.name}
