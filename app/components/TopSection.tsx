@@ -1,5 +1,6 @@
 import Image from "next/image";
 import fotoMain from "../content/MaciekMainHQ.png";
+import Link from "next/link";
 
 export const TopSection = () => {
   return (
@@ -22,10 +23,10 @@ export const TopSection = () => {
         </span>
         <div className={"flex flex-col lg:flex-row justify-between gap-6"}>
           <button className={"bg-zp-orange-500 text-white font-bold p-2 w-40"}>
-            Kontakt
+            <Link href={"/about"}>{"Kontakt"}</Link>
           </button>
           <button className={"bg-white text-zp-orange-500 font-bold p-2 w-40"}>
-            O mnie
+            <Link href={"/about"}>{"O mnie"}</Link>
           </button>
         </div>
       </div>
