@@ -2,7 +2,7 @@ import { PartnersCard } from "@/app/components/PartnersCard";
 
 export const PartnersSection = () => {
   return (
-    <div className="w-full h-full flex flex-col items-center my-10">
+    <div className="w-full h-full flex flex-col items-center my-10 bg-white">
       <span className="text-4xl md:text-6xl font-bold text-black">
         Nasi partnerzy
       </span>
