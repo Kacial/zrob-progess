@@ -14,8 +14,8 @@ export const TopToolbar = () => {
 
   const toolbarClass = useMemo(() => {
     return isVisible
-      ? "hidden bg-black flex-row lg:flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out relative"
-      : "hidden bg-black flex-row lg:flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out -translate-y-full relative";
+      ? "hidden bg-black flex-row md:flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out relative"
+      : "hidden bg-black flex-row md:flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out -translate-y-full relative";
   }, [isVisible]);
 
   // const { width } = useWindowSize();
@@ -33,17 +33,26 @@ export const TopToolbar = () => {
   return (
     <div className={toolbarClass}>
       <Image src={logo_mix} alt={"logo_mix"} className={"scale-50"} />
-      <div className={"flex flex-row gap-6 pr-6"}>
-        <Link href={"/"} className={"text-zp-orange-500 text-base"}>
+      <div className={"flex flex-row gap-4 md:gap-6 pr-2 md:pr-6"}>
+        <Link href={"/"} className={"text-zp-orange-500 text-sm md:text-base"}>
           {"Strona główna"}
         </Link>
-        <Link href={"/about"} className={"text-zp-orange-500 text-base"}>
+        <Link
+          href={"/about"}
+          className={"text-zp-orange-500 text-sm md:text-base"}
+        >
           {"O mnie"}
         </Link>
-        <Link href={"/offer"} className={"text-zp-orange-500 text-base"}>
+        <Link
+          href={"/offer"}
+          className={"text-zp-orange-500 text-sm md:text-base"}
+        >
           {"Oferta"}
         </Link>
-        <Link href={"/contact"} className={"text-zp-orange-500 text-base"}>
+        <Link
+          href={"/contact"}
+          className={"text-zp-orange-500 text-sm md:text-base"}
+        >
           {"Kontakt"}
         </Link>
         <Image src={instagram_icon} alt={"instagram"} />
