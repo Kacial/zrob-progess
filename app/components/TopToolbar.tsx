@@ -55,8 +55,20 @@ export const TopToolbar = () => {
         >
           {"Kontakt"}
         </Link>
-        <Image src={instagram_icon} alt={"instagram"} />
-        <Image src={facebook_icon} alt={"facebook"} />
+        <Link
+          href={"https://www.instagram.com/zrobprogress/"}
+          target={"_blank"}
+          id={"footer_instagram_link"}
+        >
+          <Image src={instagram_icon} alt={"instagram"} />
+        </Link>
+        <Link
+          href={"https://www.facebook.com/M.RzepkaRzepka"}
+          target={"_blank"}
+          id={"footer_facebook_link"}
+        >
+          <Image src={facebook_icon} alt={"facebook"} />
+        </Link>
       </div>
     </div>
   );

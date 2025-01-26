@@ -1,4 +1,9 @@
+"use client";
+
 import React from "react";
+import { usePricingModal } from "@/app/components/Pricing Section/utils";
+import { PricingModal } from "@/app/components/Pricing Section/PricingModal";
+import { inflate } from "node:zlib";
 
 type PricingType = "massage" | "training" | "onlineTraining";
 
@@ -20,6 +25,12 @@ interface Service {
   button?: string;
 }
 
+interface ModalDetails {
+  isOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+}
+
 const services: Service[] = [
   {
     type: "training",
@@ -27,12 +38,6 @@ const services: Service[] = [
     pricing: [
       { name: "1h treningu personalnego, terapii ruchowej", price: 160 },
       { name: "8h treningów personalnych, terapii ruchowych", price: 1200 },
-      // {
-      //   name: "Plan żywieniowy, suplementacja, odczyt wyników badań krwi przez specjalistę",
-      //   price: 150,
-      // },
-      // { name: "Plan Treningowy", price: 150 },
-      // { name: "Kinesiology Taping", price: 40 },
     ],
     button: "SPRAWDŹ SZCZEGÓŁY",
   },
@@ -48,37 +53,58 @@ const services: Service[] = [
     button: "SPRAWDŻ SZCZEGÓŁY",
   },
 ];
-const TrainingCard: React.FC<Service> = ({ name, pricing, button }) => (
-  <div className="px-10 py-14 flex flex-col gap-8 items-center shadow-custom">
-    <span className="text-2xl md:text-3xl font-bold text-white">{name}</span>
-    {Array.isArray(pricing) &&
-      pricing.map(({ name, price }, index) => (
-        <div key={index} className="flex justify-between w-full">
-          <span className="text-base md:text-xl text-white text-left">
-            {name}
-          </span>
-          <span className="text-base md:text-xl text-zp-orange-500 font-bold text-right">
-            {price} zł
-          </span>
-        </div>
-      ))}
-    <button className="bg-white text-base font-bold text-zp-orange-500 px-14 py-2">
-      {button}
-    </button>
-  </div>
-);
+const TrainingCard: React.FC<Service & ModalDetails> = ({
+  name,
+  pricing,
+  button,
+  isOpen,
+  openModal,
+  closeModal,
+}) => {
+  return (
+    <div className="px-10 py-14 flex flex-col gap-8 items-center shadow-custom">
+      <span className="text-2xl md:text-3xl font-bold text-white">{name}</span>
+      {isOpen && (
+        <PricingModal modalType={"training"} closeModal={() => closeModal()} />
+      )}
+      {Array.isArray(pricing) &&
+        pricing.map(({ name, price }, index) => (
+          <div key={index} className="flex justify-between w-full">
+            <span className="text-base md:text-xl text-white text-left">
+              {name}
+            </span>
+            <span className="text-base md:text-xl text-zp-orange-500 font-bold text-right">
+              {price} zł
+            </span>
+          </div>
+        ))}
+      <button
+        className="bg-white text-base font-bold text-zp-orange-500 px-14 py-2"
+        onClick={() => openModal()}
+      >
+        {button}
+      </button>
+    </div>
+  );
+};
 
 // Reusable component for non-training service cards
-const ServiceCard: React.FC<Service> = ({
+const ServiceCard: React.FC<Service & ModalDetails> = ({
   type,
   name,
   desc,
   serviceDetails,
   pricing,
   button,
+  isOpen,
+  openModal,
+  closeModal,
 }) => (
   <div className="px-10 py-14 flex flex-col gap-8 items-center justify-between">
     <span className="text-2xl md:text-3xl font-bold text-white">{name}</span>
+    {isOpen && (
+      <PricingModal modalType={"cooperation"} closeModal={() => closeModal()} />
+    )}
     {desc && <span className="text-base md:text-xl text-white">{desc}</span>}
     <div className="flex justify-between w-full">
       <span className="text-base md:text-xl text-white text-left">
@@ -90,6 +116,7 @@ const ServiceCard: React.FC<Service> = ({
     </div>
     {button && (
       <button
+        onClick={() => openModal()}
         className={`${type === "massage" ? "bg-zp-orange-500 text-white" : "bg-white text-zp-orange-500"} text-base font-bold px-14 py-2`}
       >
         {button}
@@ -99,6 +126,7 @@ const ServiceCard: React.FC<Service> = ({
 );
 
 export const PricingCard: React.FC<PricingPros> = ({ type }) => {
+  const { isOpen, openModal, closeModal } = usePricingModal();
   const filteredService = services.find((service) => service.type === type);
 
   return (
@@ -108,6 +136,9 @@ export const PricingCard: React.FC<PricingPros> = ({ type }) => {
           name={filteredService.name}
           pricing={filteredService.pricing}
           button={filteredService.button}
+          isOpen={isOpen}
+          openModal={openModal}
+          closeModal={closeModal}
         />
       ) : (
         filteredService && (
@@ -118,6 +149,9 @@ export const PricingCard: React.FC<PricingPros> = ({ type }) => {
             serviceDetails={filteredService.serviceDetails}
             pricing={filteredService.pricing}
             button={filteredService.button}
+            isOpen={isOpen}
+            openModal={openModal}
+            closeModal={closeModal}
           />
         )
       )}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import logoMix from "../content/logo_mix.png";
 import instagram_icon from "../content/ig_logo.svg";
 import facebook_icon from "../content/fb_logo.svg";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -16,8 +17,20 @@ export const Footer = () => {
           <span className={"text-md text-white"}>zrob.progres@gmail.com</span>
           <span className={"text-md text-white"}>tel. +48 666 721 048</span>
           <div className={"flex gap-6 flex-row"}>
-            <Image src={instagram_icon} alt={"instagram"} />
-            <Image src={facebook_icon} alt={"facebook"} />
+            <Link
+              href={"https://www.instagram.com/zrobprogress/"}
+              target={"_blank"}
+              id={"footer_instagram_link"}
+            >
+              <Image src={instagram_icon} alt={"instagram"} />
+            </Link>
+            <Link
+              href={"https://www.facebook.com/M.RzepkaRzepka"}
+              target={"_blank"}
+              id={"footer_facebook_link"}
+            >
+              <Image src={facebook_icon} alt={"facebook"} />
+            </Link>
           </div>
         </div>
       </div>
