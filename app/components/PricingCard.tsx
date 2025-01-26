@@ -3,7 +3,6 @@
 import React from "react";
 import { usePricingModal } from "@/app/components/Pricing Section/utils";
 import { PricingModal } from "@/app/components/Pricing Section/PricingModal";
-import { inflate } from "node:zlib";
 
 type PricingType = "massage" | "training" | "onlineTraining";
 
