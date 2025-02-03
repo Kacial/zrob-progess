@@ -9,13 +9,18 @@ import { useTopToolbar } from "@/app/components/Toolbar/utils";
 import { useEffect, useMemo } from "react";
 
 export const TopToolbar = () => {
-  const { lastScrollY, isVisible, handleScroll, handleMouseMove } =
-    useTopToolbar();
+  const {
+    lastScrollY,
+    isVisible,
+    handleScroll,
+    handleMouseMove,
+    scrollToSection,
+  } = useTopToolbar();
 
   const toolbarClass = useMemo(() => {
     return isVisible
-      ? "hidden bg-black flex-row md:flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out relative"
-      : "hidden bg-black flex-row md:flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out -translate-y-full relative";
+      ? "bg-black flex-row flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out relative"
+      : "bg-black flex-row flex items-center justify-between sticky top-0 h-[80px] z-20 transform transition-transform duration-300 ease-in-out -translate-y-full relative";
   }, [isVisible]);
 
   // const { width } = useWindowSize();
@@ -32,33 +37,36 @@ export const TopToolbar = () => {
 
   return (
     <div className={toolbarClass}>
-      <Image src={logo_mix} alt={"logo_mix"} className={"scale-50"} />
-      <div className={"flex flex-row gap-4 md:gap-6 pr-2 md:pr-6"}>
-        <Link href={"/"} className={"text-zp-orange-500 text-sm md:text-base"}>
-          {"Strona główna"}
-        </Link>
-        <Link
-          href={"/about"}
-          className={"text-zp-orange-500 text-sm md:text-base"}
+      <Image
+        onClick={() => scrollToSection("top_page")}
+        src={logo_mix}
+        alt={"logo_mix"}
+        className={"hidden sm:block scale-50"}
+      />
+      <div className={"flex flex-row gap-4 md:gap-6 pl-10 pr-2 md:pr-6"}>
+        <button
+          onClick={() => scrollToSection("top_page")}
+          className={"text-zp-orange-500 text-base"}
         >
-          {"O mnie"}
-        </Link>
-        <Link
-          href={"/offer"}
-          className={"text-zp-orange-500 text-sm md:text-base"}
+          {"Strona główna"}
+        </button>
+        <button
+          onClick={() => scrollToSection("offer")}
+          className={"text-zp-orange-500 text-base"}
         >
           {"Oferta"}
-        </Link>
-        <Link
-          href={"/contact"}
-          className={"text-zp-orange-500 text-sm md:text-base"}
+        </button>
+        <button
+          onClick={() => scrollToSection("contact")}
+          className={"text-zp-orange-500 text-base"}
         >
           {"Kontakt"}
-        </Link>
+        </button>
         <Link
           href={"https://www.instagram.com/zrobprogress/"}
           target={"_blank"}
           id={"footer_instagram_link"}
+          className={"hidden sm:block"}
         >
           <Image src={instagram_icon} alt={"instagram"} />
         </Link>
@@ -66,6 +74,7 @@ export const TopToolbar = () => {
           href={"https://www.facebook.com/M.RzepkaRzepka"}
           target={"_blank"}
           id={"footer_facebook_link"}
+          className={"hidden sm:block"}
         >
           <Image src={facebook_icon} alt={"facebook"} />
         </Link>

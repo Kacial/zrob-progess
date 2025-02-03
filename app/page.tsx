@@ -10,7 +10,6 @@ export default function Home() {
       <Layout>
         <TopSection />
         <FirstChapter />
-        {/*<OnlineCoursesSection />*/}
         <PricingSection />
         <PartnersSection />
       </Layout>
