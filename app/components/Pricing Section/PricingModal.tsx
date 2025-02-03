@@ -21,7 +21,7 @@ export const PricingModal: React.FC<PricingModal> = ({
   >
     <div
       className={
-        "bg-black p-6 rounded-lg shadow-lg max-w-4xl w-full flex flex-col gap-5 overflow-y-auto max-h-[90vh]"
+        "bg-black p-6 rounded-lg shadow-lg max-w-4xl w-full flex flex-col items-center gap-5 overflow-y-auto max-h-[90vh]"
       }
       onClick={(e) => e.stopPropagation()}
     >

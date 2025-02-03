@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { usePricingModal } from "@/app/components/Pricing Section/utils";
+import { usePricingModal } from "@/app/components/utils";
 import { PricingModal } from "@/app/components/Pricing Section/PricingModal";
 
 type PricingType = "massage" | "training" | "onlineTraining";
