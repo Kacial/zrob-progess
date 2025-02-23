@@ -26,12 +26,14 @@ export const PricingModal: React.FC<PricingModal> = ({
       onClick={(e) => e.stopPropagation()}
     >
       {modalType === "training" ? <TrainingDetails /> : <CooperationDetails />}
-      <button
-        onClick={closeModal}
-        className={"bg-zp-orange-500 text-white font-bold p-2 w-40"}
-      >
-        Zamknij
-      </button>
+      <div className="w-full flex justify-center sm:static sm:mt-5 sticky -bottom-6 bg-black py-3">
+        <button
+          onClick={closeModal}
+          className={"bg-zp-orange-500 text-white font-bold p-2 w-40"}
+        >
+          Zamknij
+        </button>
+      </div>
     </div>
   </section>
 );
